@@ -1,0 +1,45 @@
+INSERT INTO `user` (`username`, `password`, `name`, `email`, `role`, `description`) VALUES
+('admin', 'hashed_password', 'Administrator', 'admin@example.com', 1, 'Administrator user description'),
+('manager1', 'hashed_password', 'Project Manager 1', 'manager1@example.com', 2, 'Project Manager 1 description'),
+('manager2', 'hashed_password', 'Project Manager 2', 'manager2@example.com', 2, 'Project Manager 2 description'),
+('staff1', 'hashed_password', 'Staff 1', 'staff1@example.com', 3, 'Staff 1 description'),
+('staff2', 'hashed_password', 'Staff 2', 'staff2@example.com', 3, 'Staff 2 description'),
+('staff3', 'hashed_password', 'Staff 3', 'staff3@example.com', 3, 'Staff 3 description'),
+('staff4', 'hashed_password', 'Staff 4', 'staff4@example.com', 3, 'Staff 4 description'),
+('staff5', 'hashed_password', 'Staff 5', 'staff5@example.com', 3, 'Staff 5 description'),
+('staff6', 'hashed_password', 'Staff 6', 'staff6@example.com', 3, 'Staff 6 description'),
+('staff7', 'hashed_password', 'Staff 7', 'staff7@example.com', 3, 'Staff 7 description');
+
+INSERT INTO `project` (`name`, `projectManagerId`, `description`, `createDate`, `updateDate`) VALUES
+('Project 1', 2, 'Project 1 description', NOW(), NOW()),
+('Project 2', 3, 'Project 2 description', NOW(), NOW()),
+('Project 3', 3, 'Project 3 description', NOW(), NOW()),
+('Project 4', 2, 'Project 4 description', NOW(), NOW()),
+('Project 5', 2, 'Project 5 description', NOW(), NOW()),
+('Project 6', 3, 'Project 6 description', NOW(), NOW()),
+('Project 7', 3, 'Project 7 description', NOW(), NOW()),
+('Project 8', 2, 'Project 8 description', NOW(), NOW()),
+('Project 9', 3, 'Project 9 description', NOW(), NOW()),
+('Project 10', 2, 'Project 10 description', NOW(), NOW());
+
+INSERT INTO `project_staff` (`projectId`, `userId`) VALUES
+(1, 4),
+(1, 5),
+(2, 6),
+(2, 7),
+(3, 8),
+(3, 9),
+(4, 4),
+(4, 5),
+(5, 6),
+(5, 7),
+(6, 8),
+(6, 9),
+(7, 4),
+(7, 5),
+(8, 6),
+(8, 7),
+(9, 8),
+(9, 9),
+(10, 4),
+(10, 5);
