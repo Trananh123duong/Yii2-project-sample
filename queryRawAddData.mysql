@@ -1,3 +1,5 @@
+ALTER TABLE user CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 INSERT INTO `user` (`username`, `password`, `name`, `email`, `role`, `description`) VALUES
 ('admin', 'hashed_password', 'Administrator', 'admin@example.com', 1, 'Administrator user description'),
 ('manager1', 'hashed_password', 'Project Manager 1', 'manager1@example.com', 2, 'Project Manager 1 description'),
