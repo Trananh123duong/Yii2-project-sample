@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "project".
@@ -19,6 +21,9 @@ use Yii;
  */
 class Project extends \yii\db\ActiveRecord
 {
+    public $newProjectManager;
+    // public $projectManagerId;
+
     /**
      * {@inheritdoc}
      */
@@ -50,10 +55,24 @@ class Project extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'projectManagerId' => 'Project Manager ID',
+            'projectManagerId' => 'Manager',
             'description' => 'Description',
             'createDate' => 'Create Date',
             'updateDate' => 'Update Date',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['createDate', 'updateDate'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => 'updateDate',
+                ],
+                'value' => new \yii\db\Expression('NOW()'),
+            ],
         ];
     }
 
